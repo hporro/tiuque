@@ -1,0 +1,24 @@
+TODO:
+
+
+
+
+
+DONE:
+
+- fix close button on widget_about_dialog
+- insert licence GPL
+- enable following menu-items: 
+	* save
+	* save as
+	* about
+- make all buttons work
+- adjust camera on mesh load (min max values)
+- add camera movement
+- function to sync host and device 
+- mdt delaunay edge flips
+- mesh rendering
+- load mesh into host memory
+- load mesh into device (GPU), using opengl buffers
+- keep mesh data in gpu after mesh is loaded
+- normalize normals with GPU
