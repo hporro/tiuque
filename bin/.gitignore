@@ -1,0 +1,4 @@
+# all files 
+*
+# except .gitignore
+!.gitignore
