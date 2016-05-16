@@ -7,7 +7,7 @@ BINDIR=bin
 CXXINCLUDES=`pkg-config --cflags gtkmm-2.4 glibmm-2.4 gtkglextmm-1.2` -I /usr/local/include/cleap-0.3.2
 LDFLAGS=`pkg-config --libs gtkmm-2.4 glibmm-2.4 gtkglextmm-1.2` -lGLEW -L /usr/local/lib -lcleap
 OBJFILES := $(patsubst $(SRCDIR)/%.cpp,$(OBJDIR)/%.o,$(wildcard $(SRCDIR)/*.cpp))
-EXECUTABLE=app
+EXECUTABLE=tiuque
 
 $(shell [ -d "$(OBJDIR)" ] || mkdir -p $(OBJDIR))
 $(shell [ -d "$(BINDIR)" ] || mkdir -p $(BINDIR))
