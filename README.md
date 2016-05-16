@@ -6,8 +6,10 @@
 - Nvidia GPU
 
 # (2) Software requirements:
-- cleap library (http://github.com/crinavar/cleap)
 - gcc and g++
+- cleap library (http://github.com/crinavar/cleap)
+- gtkmm-2.4 glibmm-2.4 gtkglextmm-1.2
+- GLEW
 - Nvidia CUDA
 - Graphics driver with OpenGL support
 
