@@ -251,6 +251,34 @@
                         <property name="position">2</property>
                       </packing>
                     </child>
+                     <child>
+                      <object class="GtkButton" id="widget_button_fix_triangles">
+                        <property name="label" translatable="yes">Fix triangles</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">True</property>
+                        <property name="use_action_appearance">False</property>
+                      </object>
+                      <packing>
+                        <property name="expand">True</property>
+                        <property name="fill">True</property>
+                        <property name="position">3</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkButton" id="widget_button_move_particles">
+                        <property name="label" translatable="yes">Move particles</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">True</property>
+                        <property name="use_action_appearance">False</property>
+                      </object>
+                      <packing>
+                        <property name="expand">True</property>
+                        <property name="fill">True</property>
+                        <property name="position">3</property>
+                      </packing>
+                    </child>
                     <child>
                       <object class="GtkButton" id="widget_button_mdt_3d">
                         <property name="label" translatable="yes">3D Surface MDT</property>
