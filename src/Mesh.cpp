@@ -24,14 +24,14 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 #include "Mesh.h"
-Mesh::Mesh(){
+Mesh::Mesh() : accumflips(0){
     init();
 }
-Mesh::Mesh(cleap_mesh* m){
+Mesh::Mesh(cleap_mesh* m) : accumflips(0){
     init();
     this->my_cleap_mesh = m;
 }
-Mesh::Mesh(const char *filename){
+Mesh::Mesh(const char *filename) : accumflips(0){
     cleap_init();
     this->my_cleap_mesh = cleap_load_mesh(filename);
     this->default_filename = filename;
