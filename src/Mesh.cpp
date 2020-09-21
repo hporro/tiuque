@@ -67,6 +67,9 @@ void Mesh::print_mesh(){
 void Mesh::random_move_points(){
     cleap_random_move_points(my_cleap_mesh,0.2);
 }
+void Mesh::fix_triangles(){
+    cleap_fix_inverted_triangles(my_cleap_mesh);
+}
 Mesh::~Mesh(){
     cleap_clear_mesh(my_cleap_mesh);
     this->my_cleap_mesh = 0;

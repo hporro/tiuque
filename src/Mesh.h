@@ -82,6 +82,7 @@ class Mesh{
         void print_mesh();
 
         void random_move_points();
+        void fix_triangles();
 };
 #endif
 

@@ -99,6 +99,8 @@ void Application::on_hscale_size_change_value(){
 }
 
 void Application::on_button_fix_triangles_clicked(){
+    myMesh->fix_triangles();
+    my_gl_window->redraw();
 }
 
 void Application::on_button_move_particles_clicked(){
