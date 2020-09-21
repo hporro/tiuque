@@ -64,6 +64,9 @@ void Mesh::delaunay_transformation_interactive(int mode){
 void Mesh::print_mesh(){
     cleap_print_mesh(my_cleap_mesh);
 }
+void Mesh::random_move_points(){
+    cleap_random_move_points(my_cleap_mesh,0.2);
+}
 Mesh::~Mesh(){
     cleap_clear_mesh(my_cleap_mesh);
     this->my_cleap_mesh = 0;

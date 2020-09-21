@@ -80,6 +80,8 @@ class Mesh{
         void delaunay_transformation_interactive(int mode);
 
         void print_mesh();
+
+        void random_move_points();
 };
 #endif
 

@@ -99,11 +99,11 @@ void Application::on_hscale_size_change_value(){
 }
 
 void Application::on_button_fix_triangles_clicked(){
-    printf("on_button_fix_triangles_clicked\n");
 }
 
 void Application::on_button_move_particles_clicked(){
-    printf("on_button_move_particles\n");
+    myMesh->random_move_points();
+    my_gl_window->redraw();
 }
 
 void Application::init(){
@@ -139,11 +139,11 @@ void Application::init(){
         if(button_fix_triangles){
             button_fix_triangles->signal_clicked().connect(sigc::mem_fun(*this,&Application::on_button_fix_triangles_clicked));
         }
-        // move particles
         ref_builder->get_widget("widget_button_move_particles", button_move_particles);
         if(button_move_particles){
             button_move_particles->signal_clicked().connect(sigc::mem_fun(*this,&Application::on_button_move_particles_clicked));
         }
+
         // toogle wireframe
         ref_builder->get_widget("widget_toggle_button_wireframe", toogle_button_wireframe);
         if( toogle_button_wireframe){
