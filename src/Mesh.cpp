@@ -30,11 +30,20 @@ Mesh::Mesh() : accumflips(0){
 Mesh::Mesh(cleap_mesh* m) : accumflips(0){
     init();
     this->my_cleap_mesh = m;
+    n = cleap_get_vertex_count(m);
+    vel = new hmath::float2[cleap_get_vertex_count(m)];
 }
 Mesh::Mesh(const char *filename) : accumflips(0){
     cleap_init();
     this->my_cleap_mesh = cleap_load_mesh(filename);
     this->default_filename = filename;
+    n = cleap_get_vertex_count(this->my_cleap_mesh);
+    vel = new hmath::float2[cleap_get_vertex_count(this->my_cleap_mesh)];
+	float maxVel = 0.0025;
+    for(int i=4;i<n;i++){
+        vel[i]=hmath::float2{i*maxVel,i*maxVel};
+    }
+	
 }
 void Mesh::init(){
     this->my_cleap_mesh = 0;
@@ -62,10 +71,28 @@ void Mesh::delaunay_transformation_interactive(int mode){
 	printf("flips = %i       accumflips = %i\n", flips, accumflips);
 }
 void Mesh::print_mesh(){
+	printf("CURRENT MESH:\n");
     cleap_print_mesh(my_cleap_mesh);
 }
 void Mesh::random_move_points(){
-    cleap_random_move_points(my_cleap_mesh,0.2);
+	GLuint p = cleap_get_vertex_buffer(this->my_cleap_mesh);
+	glBindBuffer(GL_ARRAY_BUFFER, p);
+	void *ptr = glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY);
+	hmath::float4 pos[n];
+	memcpy(pos, ptr, sizeof(hmath::float4) * n);
+	glUnmapBuffer(GL_ARRAY_BUFFER);
+
+	for (int i = 4; i < n; i++) {
+		if (pos[i][1] < -0.5 || pos[i][1] > 0.5) {vel[i][1] *= -1;pos[i][1] += vel[i][1];}
+		if (pos[i][0] < -0.5 || pos[i][0] > 0.5) {vel[i][0] *= -1;pos[i][0] += vel[i][0];}
+		pos[i][0] += vel[i][0];
+		pos[i][1] += vel[i][1];
+	}
+
+	glBindBuffer(GL_ARRAY_BUFFER, p);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(hmath::float4) * n, pos, GL_STATIC_DRAW);
+
+	glBindBuffer(GL_ARRAY_BUFFER, 0);	
 }
 void Mesh::fix_triangles(){
     cleap_fix_inverted_triangles(my_cleap_mesh);

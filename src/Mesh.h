@@ -39,10 +39,14 @@
 // cleap library
 #include <cleap.h>
 
+#include "hmath.h"
+
 class Mesh{
     private:
         //private fields
         cleap_mesh* my_cleap_mesh;
+		hmath::float2* vel;        
+		int n;
         const char* default_filename;
         int accumflips;
     public:

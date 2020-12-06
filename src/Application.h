@@ -31,7 +31,7 @@ class Application : public Gtk::Window{
         Mesh* myMesh;
         Glib::RefPtr<Gtk::Builder> ref_builder;
         //widget pointers
-        Gtk::Button *button_exit, *button_mdt_2d, *button_mdt_3d, *button_clear, *button_fix_triangles, *button_move_particles;
+        Gtk::Button *button_exit, *button_mdt_2d, *button_mdt_3d, *button_clear, *button_fix_triangles, *button_move_particles, *button_print_mesh;
         Gtk::ToggleButton *toogle_button_wireframe, *toogle_button_solid;
         Gtk::CheckButton *check_button_educational_mode;
         Gtk::HScale *hscale_size;
@@ -62,4 +62,5 @@ class Application : public Gtk::Window{
         
         void on_button_fix_triangles_clicked();
         void on_button_move_particles_clicked();
+        void on_button_print_mesh_clicked();
 };

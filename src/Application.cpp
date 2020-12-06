@@ -108,6 +108,10 @@ void Application::on_button_move_particles_clicked(){
     my_gl_window->redraw();
 }
 
+void Application::on_button_print_mesh_clicked(){
+    myMesh->print_mesh();
+}
+
 void Application::init(){
 
         //! linking widgets to logic
@@ -145,6 +149,12 @@ void Application::init(){
         if(button_move_particles){
             button_move_particles->signal_clicked().connect(sigc::mem_fun(*this,&Application::on_button_move_particles_clicked));
         }
+        ref_builder->get_widget("widget_button_print_mesh", button_print_mesh);
+        if(button_print_mesh){
+            button_print_mesh->signal_clicked().connect(sigc::mem_fun(*this,&Application::on_button_print_mesh_clicked));
+        }
+
+
 
         // toogle wireframe
         ref_builder->get_widget("widget_toggle_button_wireframe", toogle_button_wireframe);
